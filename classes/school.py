@@ -17,7 +17,12 @@ class School:
             if student_id == stud.school_id:
                 return stud
         return "This ID doesn't match any students."
-            
+
+    def add_student(self, student_data):
+        new_student = Student(**student_data)
+        self.students.append(new_student)
+
+
 
 
 
