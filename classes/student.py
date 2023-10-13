@@ -1,11 +1,9 @@
 import csv
+from classes.person import Person
 
-class Student:
+class Student(Person):
     def __init__(self, name, age, role, school_id, password):
-        self.name = name 
-        self.age = age         
-        self.password = password
-        self.role = role
+        super().__init__(name, age, role, password)
         self.school_id = school_id
 
     def __str__(self):
@@ -16,7 +14,7 @@ class Student:
               id: {self.school_id}"""
 
     @classmethod 
-    def all_students(cls):
+    def all_members(cls):
         students =[]
         with open('./data/students.csv', newline="") as csvfile:
             reader = csv.DictReader(csvfile)
@@ -25,4 +23,4 @@ class Student:
                 students.append(new_student)       
         return students
     
-Student.all_students()
+#Student.all_students()
